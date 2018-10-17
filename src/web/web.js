@@ -1,11 +1,11 @@
-import "../../root/root";
+import '../../root/root';
 // import * as selectors from "./selectors";
 // import * as actions from "./actions";
 // import * as reducers from "./reducers";
 // import * as sagas from "./sagas";
 // import defaultStore from "./webStore.js";
 
-import { finalize } from "./utility";
+import { finalize } from './utility';
 
 const web = {
   defaultStore: {},

@@ -1,13 +1,15 @@
-import React, { Component } from "react";
-import { Provider } from "react-redux";
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 
 export class App extends Component {
   onTitleClicked = () => {
-    console.log("titleCilcked");
-    window.postMessage(JSON.stringify({
-      type: "console",
-      message: "Business title clicked"
-    }));
+    console.log('titleCilcked');
+    window.postMessage(
+      JSON.stringify({
+        type: 'console',
+        message: 'Business title clicked'
+      })
+    );
   };
 
   render() {

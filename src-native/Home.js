@@ -1,23 +1,16 @@
-import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  WebView,
-  TextInput,
-  Button
-} from "react-native";
-import _ from "lodash";
-import { connect } from "react-redux";
-import { startGetUserRepos, setAuth } from "../root/actions";
-import { authSelector, reposSelector } from "../root/selectors";
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, WebView, TextInput, Button } from 'react-native';
+import _ from 'lodash';
+import { connect } from 'react-redux';
+import { startGetUserRepos, setAuth } from '../root/actions';
+import { authSelector, reposSelector } from '../root/selectors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "stretch",
-    backgroundColor: "#fff",
-    justifyContent: "center"
+    alignItems: 'stretch',
+    backgroundColor: '#fff',
+    justifyContent: 'center'
   }
 });
 
@@ -32,7 +25,7 @@ export class Home extends Component {
   };
 
   onWebViewMessage(event) {
-    console.log("Message from WebView:");
+    console.log('Message from WebView:');
     console.log(event.nativeEvent.data);
   }
 
@@ -44,17 +37,8 @@ export class Home extends Component {
       <View style={styles.container}>
         <View style={{ padding: 10, paddingTop: 30 }}>
           <Text>This is Native Host</Text>
-          <TextInput
-            onChangeText={this.onUsernameInputChange}
-            value={auth.username}
-            style={{ height: 30, marginTop: 10 }}
-            placeholder="github username"
-          />
-          <Button
-            style={{ marginBottom: 10 }}
-            title={"Submit"}
-            onPress={this.onSubmitClick}
-          />
+          <TextInput onChangeText={this.onUsernameInputChange} value={auth.username} style={{ height: 30, marginTop: 10 }} placeholder="github username" />
+          <Button style={{ marginBottom: 10 }} title={'Submit'} onPress={this.onSubmitClick} />
           {_.take(_.values(repos), 3).map(r => {
             return (
               <Button
@@ -69,26 +53,26 @@ export class Home extends Component {
           })}
         </View>
         <WebView
-          originWhitelist={["*"]}
+          originWhitelist={['*']}
           onMessage={this.onWebViewMessage}
           style={{
             height: 300,
             margin: 10,
-            borderColor: "#333333",
+            borderColor: '#333333',
             borderWidth: 1
           }}
-          source={{ uri: "http://192.168.3.83:3000/auth.html" }}
+          source={{ uri: 'http://192.168.3.83:3000/auth.html' }}
         />
         <WebView
-          originWhitelist={["*"]}
+          originWhitelist={['*']}
           onMessage={this.onWebViewMessage}
           style={{
             height: 300,
             margin: 10,
-            borderColor: "#333333",
+            borderColor: '#333333',
             borderWidth: 1
           }}
-          source={{ uri: "http://192.168.3.83:3000/business.html" }}
+          source={{ uri: 'http://192.168.3.83:3000/business.html' }}
         />
       </View>
     );

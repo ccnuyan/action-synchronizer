@@ -1,0 +1,13 @@
+{
+    "extends": "react-app",
+    "rules": {
+      "indent": ["error", 2, { "SwitchCase": 1 }],
+      "quotes": ["error", "single"],
+      "semi": ["error", "always"]
+    },
+    "globals": {
+      "define": true,
+      "head": true,
+      "location": true
+    }
+  }

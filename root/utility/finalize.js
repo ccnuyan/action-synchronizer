@@ -1,5 +1,5 @@
-import _ from "lodash";
-import { createReducer, getStore } from "./";
+import _ from 'lodash';
+import { createReducer, getStore } from './';
 
 export const finalize = apps => {
   const backend = _.reduce(
@@ -23,9 +23,7 @@ export const finalize = apps => {
     {}
   );
 
-  backend.reducers = _.mapValues(backend.reducers, rdc =>
-    createReducer(null, rdc)
-  );
+  backend.reducers = _.mapValues(backend.reducers, rdc => createReducer(null, rdc));
 
   return getStore(backend);
 };

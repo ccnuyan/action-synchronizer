@@ -1,6 +1,6 @@
 import './root/root.js';
-import React from "react";
-import { Provider } from "react-redux";
+import React from 'react';
+import { Provider } from 'react-redux';
 
 import Home from './src-native/Home.js';
 
@@ -10,7 +10,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Home/>
+        <Home />
       </Provider>
     );
   }

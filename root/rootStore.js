@@ -1,7 +1,7 @@
 export default {
   root: {
     auth: {
-      username: "ccnuyan"
+      username: 'ccnuyan'
     },
     repos: {}
   }

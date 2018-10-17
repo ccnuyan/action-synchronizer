@@ -1,2 +1,2 @@
-export { authSelector } from "./authSelector";
-export { reposSelector } from "./reposSelector";
+export { authSelector } from './authSelector';
+export { reposSelector } from './reposSelector';

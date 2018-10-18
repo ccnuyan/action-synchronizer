@@ -5,16 +5,16 @@ export class Synchronizer {
     this.id = id;
     this.getStore = getStore;
     this.isParent = isParent || false;
-    this.listerners = {};
+    this.listeners = {};
 
     this.dispatch = this.dispatch.bind(this);
     this.middleware = this.middleware.bind(this);
-    this.registerListerner = this.registerListerner.bind(this);
+    this.registerListener = this.registerListener.bind(this);
   }
 
-  // listerner is webview ,iframe or their parent;
-  registerListerner(id, listerner) {
-    this.listerners[id] = listerner;
+  // listener is webview ,iframe or their parent;
+  registerListener(id, listener) {
+    this.listeners[id] = listener;
   }
 
   // when message received
@@ -23,7 +23,7 @@ export class Synchronizer {
     this.getStore().dispatch(action);
   }
 
-  // all actions luanched from this store should announce the listerners with the from property;
+  // all actions luanched from this store should announce the listeners with the from property;
   middleware(store) {
     return next => action => {
       next(action);
@@ -33,11 +33,11 @@ export class Synchronizer {
       }
 
       if (!action.from) {
-        // it's action from this store, just send action to all listerners
+        // it's action from this store, just send action to all listeners
         action.from = this.id;
 
-        _.keys(this.listerners).forEach(k => {
-          this.listerners[k].postMessage(JSON.stringify({ type: 'sync_action', action }));
+        _.keys(this.listeners).forEach(k => {
+          this.listeners[k].postMessage(JSON.stringify({ type: 'sync_action', action }));
         });
         return;
       }
@@ -45,9 +45,9 @@ export class Synchronizer {
       if (action.from !== this.id) {
         // if parent, means it's action from another child, then send action to other children
         if (this.isParent) {
-          _.keys(this.listerners).forEach(k => {
+          _.keys(this.listeners).forEach(k => {
             if (k !== action.from) {
-              this.listerners[k].postMessage(JSON.stringify({ type: 'sync_action', action }));
+              this.listeners[k].postMessage(JSON.stringify({ type: 'sync_action', action }));
             }
           });
         }

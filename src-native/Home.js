@@ -45,8 +45,8 @@ export class Home extends Component {
   onRepoPressed(r) {}
 
   componentDidMount = () => {
-    synchronizer.registerListerner('auth', this.webView1);
-    synchronizer.registerListerner('business', this.webView2);
+    synchronizer.registerListener('auth', this.webView1);
+    synchronizer.registerListener('business', this.webView2);
   };
 
   render() {

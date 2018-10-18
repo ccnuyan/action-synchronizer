@@ -9,7 +9,7 @@ import { Synchronizer } from '../../synchronizer';
 
 const getGlobalStore = () => window.store;
 export const synchronizer = new Synchronizer('business', getGlobalStore);
-synchronizer.registerListerner('auth', window);
+synchronizer.registerListener('auth', window);
 
 const { store } = global.state.finalize(global.state.apps, synchronizer);
 

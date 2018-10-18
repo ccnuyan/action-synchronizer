@@ -1,11 +1,14 @@
 {
   "expo": {
-    "name": "native-host",
-    "description": "This project is really great.",
-    "slug": "native-host",
+    "name": "action-synchronizer",
+    "description": "sync redux actions between native host and WebViews, by listening and posting messages.",
+    "slug": "action-synchronizer",
     "privacy": "public",
     "sdkVersion": "30.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,6 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "githubUrl": "https://github.com/ccnuyan/action-synchronizer.git"
   }
 }

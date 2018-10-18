@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import LoginForm from './LoginForm';
 
 export class App extends Component {
-  onTitleClicked = () => {
-    console.log('titleCilcked');
-    window.postMessage(
-      JSON.stringify({
-        type: 'console',
-        message: 'Auth title clicked'
-      })
-    );
-  };
-
   render() {
     return (
       <Provider store={this.props.store}>
-        <button ref={e => (this.button = e)} onClick={this.onTitleClicked}>
-          This is Auth Page
-        </button>
+        <div>
+          <h2>This is Auth WebView</h2>
+          <LoginForm />
+        </div>
       </Provider>
     );
   }

@@ -3,10 +3,13 @@ import * as selectors from './selectors';
 import * as actions from './actions';
 import * as reducers from './reducers';
 import * as sagas from './sagas';
-import defaultStore from './rootStore.js';
 
 const root = {
-  defaultStore,
+  defaultStore: {
+    root: {
+      username: 'ccnuyan'
+    }
+  },
   reducers,
   sagas,
   selectors,

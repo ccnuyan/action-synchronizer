@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import RepoList from './RepoList';
 
 export class App extends Component {
-  onTitleClicked = () => {
-    console.log('titleCilcked');
-    window.postMessage(
-      JSON.stringify({
-        type: 'console',
-        message: 'Business title clicked'
-      })
-    );
-  };
-
   render() {
     return (
       <Provider store={this.props.store}>
-        <button onClick={this.onTitleClicked}>This is Business Page</button>
+        <div>
+          <h2>This is Business WebView</h2>
+          <RepoList />
+        </div>
       </Provider>
     );
   }

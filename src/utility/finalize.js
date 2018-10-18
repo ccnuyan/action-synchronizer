@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import { createReducer } from '../../../root/utility';
+import { createReducer } from '../../root/utility';
 import { getStoreAndHistory } from './';
 
-export const finalize = apps => {
+export const finalize = (apps, synchronizer) => {
   const backend = _.reduce(
     apps,
     (result, value, key) => {
@@ -26,5 +26,5 @@ export const finalize = apps => {
 
   backend.reducers = _.mapValues(backend.reducers, rdc => createReducer(null, rdc));
 
-  return getStoreAndHistory(backend);
+  return getStoreAndHistory(backend, synchronizer);
 };

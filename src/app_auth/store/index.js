@@ -1,14 +1,16 @@
-import '../../root/root';
+import '../../../root';
 // import * as selectors from "./selectors";
 // import * as actions from "./actions";
 // import * as reducers from "./reducers";
 // import * as sagas from "./sagas";
 // import defaultStore from "./webStore.js";
 
-import { finalize } from './utility';
+import { finalize } from '../../utility';
 
-const web = {
-  defaultStore: {},
+const auth = {
+  defaultStore: {
+    auth: {}
+  },
   reducers: {},
   sagas: {},
   selectors: {},
@@ -16,4 +18,4 @@ const web = {
 };
 
 global.state.finalize = finalize;
-global.state.eat(global.state, 'web', web);
+global.state.eat(global.state, 'auth', auth);
